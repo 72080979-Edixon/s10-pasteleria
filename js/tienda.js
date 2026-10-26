@@ -54,7 +54,6 @@ function guardarCarrito() {
 function mostrarProductos(lista) {
 
     contenedor.innerHTML = "";
-
     lista.forEach(producto => {
 
         contenedor.innerHTML += `
