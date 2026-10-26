@@ -15,28 +15,33 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
+
             <a class="navbar-brand fw-bold" href="#">
-                🍰 Pastelería Delicia
+                Pastelería Delicia
             </a>
 
-            <button class="btn btn-light position-relative"
+            <button
+                class="btn btn-light position-relative"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#carritoCanvas">
 
-                🛒 Carrito
+                Carrito
 
-                <span id="contador"
+                <span
+                    id="contador"
                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     0
                 </span>
 
             </button>
+
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero text-center">
         <div class="container py-5">
+
             <h1 class="display-4 fw-bold">
                 Dulces Momentos para Compartir
             </h1>
@@ -44,6 +49,7 @@
             <p class="lead">
                 Encuentra las mejores tortas, cupcakes y postres artesanales.
             </p>
+
         </div>
     </section>
 
@@ -58,6 +64,7 @@
 
     <!-- Filtros -->
     <div class="container mt-3">
+
         <ul class="nav nav-pills justify-content-center gap-2">
 
             <li class="nav-item">
@@ -85,17 +92,17 @@
             </li>
 
         </ul>
+
     </div>
 
     <!-- Productos -->
     <div class="container py-5">
-        <div id="productos" class="row g-4">
-
-        </div>
+        <div id="productos" class="row g-4"></div>
     </div>
 
-    <!-- Pedido Especial -->
+    <!-- Formulario -->
     <div class="container mb-5">
+
         <div class="card shadow">
 
             <div class="card-header bg-primary text-white">
@@ -115,45 +122,55 @@
                     <textarea
                         class="form-control mb-3"
                         rows="4"
-                        placeholder="Describe tu torta personalizada"
+                        placeholder="Describe tu pedido personalizado"
                         required></textarea>
 
-                    <button class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary">
                         Enviar Pedido
                     </button>
 
                 </form>
 
-                <div id="mensaje" class="alert alert-success mt-3 d-none">
+                <div
+                    id="mensaje"
+                    class="alert alert-success mt-3 d-none">
                     Pedido enviado correctamente.
                 </div>
 
             </div>
 
         </div>
+
     </div>
 
     <!-- Carrito -->
-    <div class="offcanvas offcanvas-end"
+    <div
+        class="offcanvas offcanvas-end"
         tabindex="-1"
         id="carritoCanvas">
 
         <div class="offcanvas-header">
-            <h5>Carrito</h5>
+
+            <h5>Carrito de Compras</h5>
 
             <button
                 type="button"
-                class="btn-dismiss="offcanvas">
+                   data-bs-dismiss="offcanvas"
+                aria-label="Cerrar">
             </button>
 
         </div>
 
         <div class="offcanvas-body">
 
-            <ul id="listaCarrito" class="list-group mb-3"></ul>
+            <ul
+                id="listaCarrito"
+                class="list-group mb-3">
+            </ul>
 
             <h4>
-                Total: S/ <span id="total">0</span>
+                Total: S/
+                <span id="total">0</span>
             </h4>
 
             <button
@@ -170,4 +187,5 @@
     <script src="js/tienda.js"></script>
 
 </body>
+
 </html>
