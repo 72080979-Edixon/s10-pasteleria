@@ -4,61 +4,51 @@ const productos = [
         nombre: "Torta Chocolate",
         precio: 80,
         categoria: "Tortas",
-        imagen:
-        "https://images.unsplash.com/photo-1578985545062-69928b1d9587"
+        imagen: "img/tortachocolate.jpg"
     },
     {
         id: 2,
         nombre: "Torta Fresa",
         precio: 75,
         categoria: "Tortas",
-        imagen:
-        "https://images.unsplash.com/photo-1464306076886-da185f6a9d05"
+        imagen: "img/tortafresa.jpg"
     },
     {
         id: 3,
         nombre: "Cupcake Vainilla",
         precio: 10,
         categoria: "Cupcakes",
-        imagen:
-        "https://images.unsplash.com/photo-1486427944299-d1955d23e34d"
+        imagen: "img/cupcakevainilla.jpg"
     },
     {
         id: 4,
         nombre: "Cupcake Chocolate",
         precio: 12,
         categoria: "Cupcakes",
-        imagen:
-        "https://images.unsplash.com/photo-1519869325930-281384150729"
+        imagen: "img/cupcakechocolate.jpg"
     },
     {
         id: 5,
         nombre: "Cheesecake",
         precio: 25,
         categoria: "Postres",
-        imagen:
-        "https://images.unsplash.com/photo-1533134242443-d4fd215305ad"
+        imagen: "img/cheesecake.jpg"
     },
     {
         id: 6,
         nombre: "Tiramisú",
         precio: 20,
         categoria: "Postres",
-        imagen:
-        "https://images.unsplash.com/photo-1571115764595-644a1f56a55c"
+        imagen: "img/tiramisu.jpg"
     }
 ];
 
 const contenedor = document.getElementById("productos");
 
-let carrito =
-    JSON.parse(localStorage.getItem("carrito")) || [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardarCarrito() {
-    localStorage.setItem(
-        "carrito",
-        JSON.stringify(carrito)
-    );
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 function mostrarProductos(lista) {
@@ -68,12 +58,14 @@ function mostrarProductos(lista) {
     lista.forEach(producto => {
 
         contenedor.innerHTML += `
-
         <div class="col-md-4">
 
             <div class="card shadow h-100">
 
-                ${producto.imagen}
+                <img
+                    src="${producto.imagen}"
+                    class="card-img-top"
+                    alt="${producto.nombre}">
 
                 <div class="card-body">
 
@@ -85,7 +77,7 @@ function mostrarProductos(lista) {
                         ${producto.nombre}
                     </h5>
 
-                    <p>
+                    <p class="fw-bold">
                         S/ ${producto.precio}
                     </p>
 
@@ -106,8 +98,9 @@ function mostrarProductos(lista) {
 
 function agregarCarrito(id) {
 
-    const producto =
-        productos.find(p => p.id === id);
+    const producto = productos.find(
+        p => p.id === id
+    );
 
     carrito.push(producto);
 
@@ -129,18 +122,15 @@ function renderCarrito() {
         total += item.precio;
 
         lista.innerHTML += `
-        <li class="list-group-item">
-        ${item.nombre}
-        - S/ ${item.precio}
+        <li class="list-group-item d-flex justify-content-between">
+            <span>${item.nombre}</span>
+            <span>S/ ${item.precio}</span>
         </li>
         `;
     });
 
-    document.getElementById("total")
-        .textContent = total;
-
-    document.getElementById("contador")
-        .textContent = carrito.length;
+    document.getElementById("total").textContent = total;
+    document.getElementById("contador").textContent = carrito.length;
 }
 
 document
@@ -157,13 +147,12 @@ document
 .getElementById("buscar")
 .addEventListener("keyup", e => {
 
-    const texto =
-        e.target.value.toLowerCase();
+    const texto = e.target.value.toLowerCase();
 
-    const resultado =
-        productos.filter(p =>
-            p.nombre.toLowerCase()
-            .includes(texto));
+    const resultado = productos.filter(
+        producto =>
+            producto.nombre.toLowerCase().includes(texto)
+    );
 
     mostrarProductos(resultado);
 });
@@ -174,22 +163,19 @@ document
 
     btn.addEventListener("click", () => {
 
-        const categoria =
-            btn.dataset.categoria;
+        const categoria = btn.dataset.categoria;
 
         if (categoria === "Todos") {
             mostrarProductos(productos);
             return;
         }
 
-        const filtrados =
-            productos.filter(
-                p => p.categoria === categoria
-            );
+        const filtrados = productos.filter(
+            producto => producto.categoria === categoria
+        );
 
         mostrarProductos(filtrados);
     });
-
 });
 
 document
@@ -199,8 +185,8 @@ document
     e.preventDefault();
 
     document
-    .getElementById("mensaje")
-    .classList.remove("d-none");
+        .getElementById("mensaje")
+        .classList.remove("d-none");
 
     e.target.reset();
 });
