@@ -32,7 +32,7 @@ const productos = [
         nombre: "Cheesecake",
         precio: 25,
         categoria: "Postres",
-        imagen: "img/cheesecake.jpg"
+        imagen: "img/chessecake.jpg"
     },
     {
         id: 6,
