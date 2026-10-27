@@ -1,17 +1,26 @@
 :root {
-    --bs-primary: #b8325a;
+    --color-principal: #6f42c1;
+    --color-secundario: #8b5cf6;
+    --color-hover: #5a32a3;
+    --color-claro: #f3ecff;
 }
 
 body {
     font-family: "Nunito Sans", sans-serif;
-    background: #f8f9fa;
+    background: linear-gradient(
+        135deg,
+        #f8f9fa,
+        #f3ecff
+    );
 }
+
+/* HERO */
 
 .hero {
     background:
         linear-gradient(
-            rgba(184, 50, 90, 0.8),
-            rgba(184, 50, 90, 0.8)
+            rgba(111, 66, 193, 0.8),
+            rgba(139, 92, 246, 0.8)
         ),
         url("../img/tortachocolate.jpg");
 
@@ -19,46 +28,173 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     color: white;
+
+    padding: 80px 20px;
+
+    box-shadow: 0 10px 25px rgba(111, 66, 193, 0.4);
 }
 
-.card-img-top {
-    height: 220px;
-    width: 100%;
-    object-fit: cover;
+.hero h1 {
+    text-shadow: 3px 3px 10px rgba(0,0,0,.3);
 }
+
+/* NAVBAR */
+
+.navbar {
+    background: linear-gradient(
+        90deg,
+        var(--color-principal),
+        var(--color-secundario)
+    ) !important;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+
+/* TARJETAS */
 
 .card {
     border: none;
-    transition: 0.3s;
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: all .4s ease;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.08);
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 35px rgba(111,66,193,.3);
 }
 
-.btn-primary,
-.bg-primary {
-    background-color: #b8325a !important;
+.card-img-top {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+
+    transition: .5s;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* BOTONES */
+
+.btn-primary {
+    background: linear-gradient(
+        45deg,
+        var(--color-principal),
+        var(--color-secundario)
+    ) !important;
+
     border: none;
+
+    border-radius: 10px;
+
+    transition: .3s;
 }
 
 .btn-primary:hover {
-    background-color: #962748 !important;
+
+    transform: scale(1.05);
+
+    background: linear-gradient(
+        45deg,
+        var(--color-hover),
+        var(--color-principal)
+    ) !important;
 }
 
-.navbar {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* BADGES */
+
+.badge {
+    background: var(--color-principal) !important;
+
+    font-size: 0.85rem;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
 }
 
-.offcanvas-header {
-    background-color: #b8325a;
+/* BUSCADOR */
+
+#buscar {
+    border-radius: 50px;
+    padding: 15px 20px;
+
+    border: 2px solid var(--color-secundario);
+
+    box-shadow:
+        0 0 15px rgba(139,92,246,.15);
+}
+
+#buscar:focus {
+
+    border-color: var(--color-principal);
+
+    box-shadow:
+        0 0 20px rgba(111,66,193,.3);
+}
+
+/* FILTROS */
+
+.filtro {
+    border-radius: 25px;
+    transition: .3s;
+}
+
+.filtro:hover {
+    background: var(--color-principal);
     color: white;
 }
 
-.badge {
-    background-color: #b8325a !important;
+/* OFFCANVAS */
+
+.offcanvas-header {
+    background:
+        linear-gradient(
+            90deg,
+            var(--color-principal),
+            var(--color-secundario)
+        );
+
+    color: white;
+}
+
+/* FORMULARIO */
+
+.card-header {
+    background:
+        linear-gradient(
+            90deg,
+            var(--color-principal),
+            var(--color-secundario)
+        ) !important;
+}
+
+/* ANIMACIÓN */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #productos .card {
-    height: 100%;
+    animation: aparecer .6s ease;
 }
